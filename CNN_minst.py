@@ -72,7 +72,7 @@ sess.run(init)
 
 start_time = time.time()
 for i in range(1000):
-    batch_xs, batch_ys = minst.train.next_batch(100)
+    batch_xs, batch_ys = minst.train.next_batch(100)  # 每次训练一批（100个）
     sess.run(train_step, feed_dict={xs: batch_xs, ys: batch_ys, keep_prob: 0.5})
     if i % 100 == 0:
         print('epoch%d: ' % int((i / 100)+1), (compute_accuracy(v_xs=minst.test.images[:1000], v_ys=minst.test.labels[:1000])))
